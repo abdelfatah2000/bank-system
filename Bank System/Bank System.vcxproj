@@ -139,13 +139,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Bank System.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="ClientManger.cpp" />
+    <ClCompile Include="DataSourceInterface.cpp" />
+    <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="FileManger.cpp" />
+    <ClCompile Include="FilesHandler.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Validation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Admin.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="ClientManger.h" />
+    <ClInclude Include="DataSourceInterface.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="FileManger.h" />
+    <ClInclude Include="FilesHandler.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Validation.h" />
   </ItemGroup>

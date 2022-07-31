@@ -1,3 +1,2 @@
 ﻿  Bank System.cpp
-C:\Users\Dell\Desktop\Bank System\Bank System\Client.h(29,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Bank System.vcxproj -> C:\Users\Dell\Desktop\Bank System\x64\Debug\Bank System.exe

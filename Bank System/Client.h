@@ -1,9 +1,12 @@
+#pragma once
 #ifndef Client_HEADER
 #define Client_HEADER
-
 #include <iostream>
+#include <vector>
+
 #include "Person.h"
 #include "Validation.h"
+
 class Client :public Person
 {
 private:
@@ -13,18 +16,23 @@ public:
 		balance = 0;
 	}
 	Client(std::string name, std::string password, float balance) :Person(name, password) {
-		this->balance = balance;
+		if (Validation::checkBalance(balance)) {
+			this->balance = balance;
+		}
 	}
 
 	//Setters
 	void setBalance(float balance) {
-		this->balance = balance;
+		if (Validation::checkBalance(balance)) {
+			this->balance = balance;
+		}
 	}
 
 	//Getters
 	float getBalance() {
 		return balance;
 	}
+
 	void withdraw(float amount) {
 		if (Validation::checkBalance((balance - amount))) {
 			balance -= amount;
@@ -42,6 +50,10 @@ public:
 		std::cout << "Username : " << name << std::endl;
 		std::cout << "Password : " << password << std::endl;
 		std::cout << "Balance : " << balance << std::endl;
+		std::cout << "================================================"<< std::endl;
 	}
 };
-#endif // !Client_HEADER
+static std::vector<Client> allClients;
+static std::vector<Client>::iterator clIt;
+
+#endif

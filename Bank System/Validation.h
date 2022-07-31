@@ -20,14 +20,20 @@ public:
 		}
 		return true;
 	}
-	static bool checkBalance(int balance) {
+	static bool checkBalance(float balance) {
 		if (balance < 1500) {
 			std::cout << "Balance should not be less than 1500\n";
 			return false;
 		}
 		return true;
 	}
-	
+	static bool checkSalary(float salary) {
+		if (salary < 5000) {
+			std::cout << "Salary must be more than 5000\n";
+			return false;
+		}
+		return true;
+	}
 };
 
 #endif
