@@ -34,6 +34,61 @@ public:
 		}
 		return true;
 	}
+
+	static std::string entryName(){
+		system("CLS");
+		std::string name;
+		std::cout << "Enter Name : ";
+		std::cin >> name;
+		while (!checkUsername(name)) {
+			system("CLS");
+			std::cout << "Invalid Username\n";
+			std::cout << "Enter Name : ";
+			std::cin >> name;
+		}
+		return name;
+	}
+	static std::string entryPassword() {
+		system("cls");
+		std::string password;
+		std::cout << "Entere Password : ";
+		std::cin >> password;
+		while (!checkPassword(password)) {
+			system("cls");
+			std::cout << "Invalid Password\n";
+			std::cout << "Enter Password : ";
+			std::cin >> password;
+		}
+		return password;
+	}
+	static float entryBalance() {
+		system("cls");
+		float balance;
+		std::cout << "Enter Balance : ";
+		std::cin >> balance;
+		while (!checkBalance(balance)) {
+			system("cls");
+			std::cout << "Invalid Balance\n";
+			std::cout << "Enter Balance : ";
+			std::cin >> balance;
+		}
+		return balance;
+	}
+
+	static float entrySalary() {
+		system("cls");
+		float salary;
+		std::cout << "Enter Salary : ";
+		std::cin >> salary;
+		while (!checkBalance(salary)) {
+			system("cls");
+			std::cout << "Invalid Salary\n";
+			std::cout << "Enter Salary : ";
+			std::cin >> salary;
+		}
+		return salary;
+	}
+
 };
 
 #endif

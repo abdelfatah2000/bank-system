@@ -46,5 +46,4 @@ public:
 	}
 	virtual void Display() = 0;
 };
-
 #endif

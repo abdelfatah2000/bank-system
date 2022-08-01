@@ -1,2 +1,7 @@
 ﻿  Bank System.cpp
+C:\Users\Dell\Desktop\Bank System\Bank System\ClientManger.h(44,15): warning C4101: 'id': unreferenced local variable
+C:\Users\Dell\Desktop\Bank System\Bank System\Screens.h(37): warning C4715: 'Screens::loginAs': not all control paths return a value
+C:\Users\Dell\Desktop\Bank System\Bank System\AdminManager.h(59): warning C4715: 'AdminManager::login': not all control paths return a value
+C:\Users\Dell\Desktop\Bank System\Bank System\EmployeeManager.h(54): warning C4715: 'EmployeeManager::login': not all control paths return a value
+C:\Users\Dell\Desktop\Bank System\Bank System\ClientManger.h(35): warning C4715: 'ClientManger::login': not all control paths return a value
   Bank System.vcxproj -> C:\Users\Dell\Desktop\Bank System\x64\Debug\Bank System.exe

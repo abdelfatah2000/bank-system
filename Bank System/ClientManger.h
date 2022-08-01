@@ -4,7 +4,7 @@
 #include "Person.h"
 #include "Client.h"
 #include "Employee.h"
-#include "FileManger.h"
+#include "FileManager.h"
 #include "Validation.h"
 
 class ClientManger
@@ -19,8 +19,10 @@ class ClientManger
 		std::cout << "6. Transfer Money\n";
 		std::cout << "7. Logout\n";
 	}
-	static void changePassword(Person* person, std::string password) {
-		person->setPassword(password);
+public:
+	static void changePassword(Person* person) {
+		person->setPassword(Validation::entryPassword());
+		std::cout << "\nPassword is Changed\n";
 	}
 	static Client* login(int id, std::string password) {
 		for (clIt = allClients.begin(); clIt != allClients.end(); clIt++) {
@@ -31,10 +33,16 @@ class ClientManger
 			return NULL;
 		}
 	}
+	static void back(Client* client) {
+		std::cout << std::endl;
+		system("pause");
+		clientOptions(client);
+	}
 	static bool clientOptions(Client* client) {
 		printClientMenu();
 		std::cout << "Select a Choice : ";
-		int choice, amount, id;
+		int choice, id;
+		float amount;
 		std::string password;
 		Employee c;
 		std::cin >> choice;
@@ -45,14 +53,9 @@ class ClientManger
 			client->Display();
 			break;
 		case 2:
-			std::system("cls");
-			std::cout << "Entre New Password : ";
-			std::cin >> password;
-			while (!Validation::checkPassword(password)) {
-				std::cout << "Entre New Password : ";
-				std::cin >> password;
-			}
-			changePassword(client, password);
+			system("cls");
+			changePassword(client);
+			FileManger::updateClientFile();
 			break;
 		case 3:
 			std::system("cls");
@@ -63,28 +66,30 @@ class ClientManger
 			std::cout << "Enter Amount of Money : ";
 			std::cin >> amount;
 			client->deposit(amount);
+			FileManger::updateClientFile();
 			break;
 		case 5:
 			std::system("cls");
 			std::cout << "Enter Amount of Money : ";
 			std::cin >> amount;
 			client->withdraw(amount);
+			FileManger::updateClientFile();
 			break;
 		case 6:
-			std::system("cls");
-			std::cout << "Enter Client Id : ";
-			std::cin >> id;
-			while (c.searchClient(id) == NULL) {
-				std::system("cls");
-				std::cout << "Invalid Id\n";
-				std::cout << "Enter Client Id : ";
-				std::cin >> id;
-			}
 			std::cout << "\nEnter Amount of Money : ";
 			std::cin >> amount;
-			client->transferTo(amount, *c.searchClient(id));
+			client->transferTo(amount, *c.searchClient(FileManger::entryid()));
 			FileManger::updateClientFile();
+		case 7:
+			return false;
+			break;
+		default:
+			system("cls");
+			clientOptions(client);
+			return true;
 		}
+		back(client);
+		return true;
 	}
 };
 
